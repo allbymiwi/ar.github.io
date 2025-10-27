@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame GLTF Scene</title>
+    <!-- A-Frame library -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- A-Frame Extras (untuk animasi) -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+      <!-- Asset Management System -->
+      <a-assets>
+        <a-asset-item id="city" src="./assets/city/scene.gltf"></a-asset-item>
+        <a-asset-item id="dragon" src="./assets/dragon/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- City GLTF model -->
+      <a-entity
+        gltf-model="#city"
+        rotation="0 -90 0"
+        scale="0.005 0.005 0.005"
+        position="0.07 1 -.5">
+      </a-entity>
+
+      <!-- Dragon GLTF model -->
+      <a-entity
+        gltf-model="#dragon"
+        rotation="0 270 0"
+        scale="0.005 0.005 0.005"
+        position="2.5 0.5 -.5"
+        animation-mixer>
+      </a-entity>
+
+      <!-- Camera & light -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+      <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
+      <a-camera position="0 1.6 3"></a-camera>
+    </a-scene>
+  </body>
+</html>
